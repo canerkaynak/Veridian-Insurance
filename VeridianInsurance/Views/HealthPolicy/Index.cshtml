@@ -1,0 +1,182 @@
+﻿@page
+@using VeridianInsurance.Models
+@model VeridianInsurance.Models.ViewModels.policyViewModel
+
+@{
+    var viewModel = ViewBag.Message as VeridianInsurance.Models.ViewModels.policyViewModel;
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/healthPolicy.css" type="text/css" />
+</head>
+
+<body>
+    <div class="grid">
+        <div class="healthPolicyBoxLeft">
+            <div class="gridHeader">
+                <h2>Policies</h2>
+                <hr />
+            </div>
+            <div class="searchBox">
+                <div class="search">
+                    <label>
+                        <input id="polNoSearchInput" type="text" onkeyup="polNoSearchFunction()" placeholder="Policy No">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+                <div class="search">
+                    <label>
+                        <input id="custIdSearchInput" type="text" onkeyup="custIdSearchFunction()" placeholder="Customer Id">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+            </div>
+            <div class="tableDiv">
+                <table id="policyListTable">
+                    <thead>
+                        <tr>
+                            <td>Policy No</td>
+                            <td>Customer Id</td>
+                            <td>Is Smoke</td>
+                            <td>Is Had Operation</td>
+                            <td>Price</td>
+                            <td>Status</td>
+                            <td>Approved By</td>
+                            <td>Date of Issue</td>
+                            <td>Payment</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var health in viewModel.HealthDetails)
+                        {
+                            Policy policy = viewModel.Policies?.FirstOrDefault(p => p.PolicyNo == health.PolicyNo);
+                            <tr>
+                                <td>@policy.PolicyNo</td>
+                                <td>@policy.CustomerID</td>
+                                <td>@health.IsSmoke</td>
+                                <td>@health.IsHadOperation</td>
+                                <td>@policy.PriceOfThePolicy</td>
+                                <td>@policy.Status</td>
+                                <td>@policy.ApprovedBy</td>
+                                <td>@policy.DateOfIssue.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>
+                                    @{
+                                        var paymentExists = viewModel.Payments?.Any(p => p.PolicyNo == health.PolicyNo) ?? false;
+
+                                        if (paymentExists)
+                                        {
+                                            @:Paid
+                                        }
+                                        else
+                                        {
+                                            if (policy.Status != 'I')
+                                            {
+                                                <form asp-action="Index" asp-controller="HealthPayment" method="post">
+                                                    <input type="hidden" name="policyNo" value="@policy.PolicyNo" />
+                                                    <input type="hidden" name="payedAmount" value="@policy.PriceOfThePolicy" />
+                                                    <input type="hidden" name="CustomerId" value="@policy.CustomerID" />
+                                                    <input type="hidden" name="isSmoke" value="@health.IsSmoke" />
+                                                    <input type="hidden" name="isHadOperation" value="@health.IsHadOperation" />
+                                                    <button type="submit" class="rounded-pill btn btn-outline-danger btn-sm">Pay</button>
+                                                </form>
+                                            }
+                                            else
+                                            {
+                                                @:Invalid
+                                            }
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="healthPolicyBoxRight">
+            <div class="gridHeader">
+                <h2>New Policy</h2>
+                <hr />
+            </div>
+            <form class="newHealthPolicyFormClass" id="newHealthPolicyForm" action="@Url.Action("NewHealthPolicy", "HealthPolicyPDF")" method="post">
+                <div name="customerId" asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div name="customerId" class="form-floating mb-3 customerChoose">
+                    <select name="customerId" class="form-control rounded-pill w-100">
+                        @foreach (var customer in ViewBag.Message.Customers)
+                        {
+                            <option name="customerId" value="@customer.Id">@customer.Id</option>
+                        }
+                    </select>
+                    <label >Customer Id</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="smoking">
+                    <p class="smokeHead">Is smoke?</p>
+                    <input name="smokingStatus" type="radio" aria-required="true" value='Y' id="rad1" />
+                    <label for="rad1">Yes</label>
+                    <input name="smokingStatus" type="radio" aria-required="true" value='N' id="rad2" />
+                    <label for="rad2">No</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="operation">
+                    <p class="operationHead">Had operation?</p>
+                    <input name="operationStatus" type="radio" aria-required="true" value='Y' id="rad3" />
+                    <label for="rad3">Yes</label>
+                    <input name="operationStatus" type="radio" aria-required="true" value='N' id="rad4" />
+                    <label for="rad4">No</label>
+                    <span class="text-danger"></span>
+                </div>
+                <button id="registerSubmit" type="submit" class=" rounded-pill w-50 btn btn-lg btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function polNoSearchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("polNoSearchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("policyListTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td)
+                {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1)
+                    {
+                        tr[i].style.display = "";
+                    }
+                    else
+                    {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function custIdSearchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("custIdSearchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("policyListTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td)
+                {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1)
+                    {
+                        tr[i].style.display = "";
+                    }
+                    else
+                    {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>

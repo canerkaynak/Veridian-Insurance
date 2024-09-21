@@ -1,0 +1,190 @@
+﻿@page
+@using VeridianInsurance.Models
+@model VeridianInsurance.Models.ViewModels.policyViewModel
+
+@{
+    var viewModel = ViewBag.Message as VeridianInsurance.Models.ViewModels.policyViewModel;
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/customer.css" type="text/css" />
+</head>
+
+<body>
+    <div class="grid">
+        <div class="customerBoxLeft">
+            <div class="gridHeader">
+                <h2>Customers</h2>
+                <hr />
+            </div>
+            <div class="searchBox">
+                <div class="search">
+                    <label>
+                        <input id="idSearchInput" type="text" onkeyup="idSearchFunction()" placeholder="Customer Id">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+                <div class="search">
+                    <label>
+                        <input id="fullNameSearchInput" type="text" onkeyup="fullNameSearchFunction()" placeholder="Full Name">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+                <div class="search">
+                    <label>
+                        <input id="TCNoSearchInput" type="text" onkeyup="TCNoSearchFunction()" placeholder="TC No">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+            </div>
+            <div class="tableDiv">
+                <table id="customerListTable">
+                    <thead>
+                        <tr>
+                            <td>Customer Id</td>
+                            <td>Full Name</td>
+                            <td>TC Kimlik No</td>
+                            <td>Age</td>
+                            <td>Phone Number</td>
+                            <td>Email</td>
+                            <td>City</td>
+                            <td>Delete</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var customer in viewModel.Customers)
+                        {
+                            int age = (int)((DateTime.Now - @customer.DateOfBirth).TotalDays / 365.242199);
+                            <tr>
+                                <td>@customer.Id</td>
+                                <td>@customer.Name @customer.Surname</td>
+                                <td>@customer.TCNo</td>
+                                <td>@age</td>
+                                <td>@customer.PhoneNumber</td>
+                                <td>@customer.Email</td>
+                                <td>@customer.City</td>
+                                <td>
+                                    <form asp-action="passivateCustomer" method="post" style="display:inline;" onsubmit="confirmDelete(event);">
+                                        <input type="hidden" name="id" value="@customer.Id" />
+                                        <button type="submit" class="rounded-pill btn btn-lg btn-outline-danger btn-sm">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="customerBoxRight">
+            <div class="gridHeader">
+                <h2>New Customer</h2>
+                <hr />
+            </div>
+            <form id="newCustomerPolicyForm" action="@Url.Action("NewCustomer", "Customer")" method="post">
+                <div name="customerId" asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <input name="TCNo" class="form-control rounded-pill w-100" autocomplete="on" aria-required="true" placeholder="TC No" />
+                    <label name="TCNo">TC No</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="name" class="form-control rounded-pill w-100" autocomplete="on" aria-required="true" placeholder="Name" />
+                    <label name="name">Name</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="surname" class="form-control rounded-pill w-100" autocomplete="on" aria-required="true" placeholder="Surname" />
+                    <label name="surname">Surname</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="dateOfBirth" type="date" class="form-control rounded-pill w-100" autocomplete="on" aria-required="true" placeholder="Date of Birth" />
+                    <label name="dateOfBirth">Date of Birth</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="phoneNumber" class="form-control rounded-pill w-100" autocomplete="on" aria-required="true" placeholder="Phone Number" />
+                    <label name="phoneNumber">Phone Number</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="email" class="form-control rounded-pill w-100" autocomplete="on" aria-required="true" placeholder="E-Mail" />
+                    <label name="email">E-Mail</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="city" class="form-control rounded-pill w-100" autocomplete="on" aria-required="true" placeholder="City" />
+                    <label name="city">City</label>
+                    <span class="text-danger"></span>
+                </div>
+                <button id="registerSubmit" type="submit" class=" rounded-pill w-50 btn btn-lg btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+    <script src="~/js/confirmation.js"></script>
+    <script>
+        function idSearchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("idSearchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("customerListTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    }
+                    else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function fullNameSearchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("fullNameSearchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("customerListTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    }
+                    else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function TCNoSearchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("TCNoSearchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("customerListTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    }
+                    else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>

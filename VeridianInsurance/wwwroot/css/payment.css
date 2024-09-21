@@ -1,0 +1,181 @@
+﻿.main-container
+{
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 5% auto;
+    background-color: transparent;
+}
+.card-container
+{
+    position: absolute;
+    width: 428px;
+    height: 270px;
+    margin: auto 186px;
+    border-radius: 20px;
+    background-color: transparent;
+    z-index: 2;
+    perspective: 1000px;
+}
+.card
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    transform-style: preserve-3d;
+    transition: all 1s linear;
+    background-color: transparent;
+}
+.card-container.flipped .card
+{
+    transform: rotateY(180deg);
+}
+.front
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background-image: url("../assets/cardFront.png");
+    background-size: cover;
+    box-shadow: 0 10px 25px 10px rgba(0, 0, 0, 0.1);
+}
+.cardFrontBackImg
+{
+    width: 100%;
+    height: 100%;
+}
+.chipImg
+{
+    width: 50px;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+.visaLogoFront
+{
+    position: relative;
+    width: 80px;
+    left: 225px;
+    top: 25px;
+}
+.cardNumberIllustrator
+{
+    position: absolute;
+    left: 40px;
+    top: 120px;
+    text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    color: white;
+}
+.cardHolderHead
+{
+    position: absolute;
+    left: 40px;
+    top: 180px;
+    text-shadow: -1px 1px 0 rgb(0, 0, 0, 0.5), 1px 1px 0 rgb(0, 0, 0, 0.5), 1px -1px 0 rgb(0, 0, 0, 0.5), -1px -1px 0 rgb(0, 0, 0, 0.5);
+    color: white;
+}
+.cardHolderIllustrator
+{
+    position: absolute;
+    left: 40px;
+    top: 200px;
+    text-shadow: -1px 1px 0 rgb(0, 0, 0, 0.5), 1px 1px 0 rgb(0, 0, 0, 0.5), 1px -1px 0 rgb(0, 0, 0, 0.5), -1px -1px 0 rgb(0, 0, 0, 0.5);
+    color: white;
+}
+.back
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background-image: url("../assets/cardBack3.jpg");
+    background-size: cover;
+    box-shadow: 0 10px 25px 10px rgba(0, 0, 0, 0.1);
+    transform: rotateY(180deg);
+}
+.visaLogoBack
+{
+    position: relative;
+    width: 150px;
+    left: 300px;
+    top: 175px;
+}
+.cardBackBackImg
+{
+    width: 100%;
+    height: 100%;
+}
+.blackLine
+{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background-color: black;
+    top: 60px;
+}
+.whiteLine
+{
+    position: absolute;
+    margin-left: 5%;   
+    width: 90%;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    top: 120px;
+}
+.expireDateHead
+{
+    position: absolute;
+    font-size: small;
+    left: 320px;
+    top: 125px;
+    color: black;
+}
+
+.expireDateIllustrator
+{
+    position: absolute;
+    font-size: small;
+    left: 320px;
+    top: 140px;
+    color: black;
+}
+.cvvHead
+{
+    position: absolute;
+    font-size: small;
+    left: 270px;
+    top: 125px;
+    color: black;
+}
+
+.cvvIllustrator
+{
+    position: absolute;
+    font-size: small;
+    left: 270px;
+    top: 140px;
+    color: black;
+}
+.input-container
+{
+    position: absolute;
+    width: 800px;
+    height: 450px;
+    border-radius: 20px;
+    margin: 150px auto;
+    background-color: #2a2185;
+    z-index: 1;
+}
+.formCls
+{
+    position: absolute;
+    width: 80%;
+    top: 150px;
+    left: 10%;
+}

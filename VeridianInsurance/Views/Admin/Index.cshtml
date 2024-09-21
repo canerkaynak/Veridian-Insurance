@@ -1,0 +1,271 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using VeridianInsurance.Models
+@using VeridianInsurance.Models.ViewModels
+@inject ApplicationDbContext DbContext
+@inject UserManager<CustomUser> UserManager
+
+@{
+    var viewModel = ViewBag.Message as VeridianInsurance.Models.ViewModels.ReportViewModel;
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="tag">
+            <div class="tag-text">Offer</div>
+        </div>
+        <div class="card">
+            <div class="pie-chart-container" id="pie-chart-container-offer1-id">
+                <canvas class="pie-chart" id="pie-chart-offer1-id"></canvas>
+                <div class="legend" id="legend-offer1-id"></div>
+            </div>
+            <div class="text">
+                <div class="count">Health: @(viewModel.TopOfferConsultant.Count > 0 ? (viewModel.TopOfferConsultant[0]?.Health ?? 0) : 0)</div>
+                <div class="count">Vehicle: @(viewModel.TopOfferConsultant.Count > 0 ? (viewModel.TopOfferConsultant[0]?.Vehicle ?? 0) : 0)</div>
+                <div class="count">Natural Disaster: @(viewModel.TopOfferConsultant.Count > 0 ? (viewModel.TopOfferConsultant[0]?.ND ?? 0) : 0)</div>
+                <div class="header">1<sup>st</sup>: @(viewModel.TopOfferConsultant.Count > 0 ? (viewModel.TopOfferConsultant[0]?.FullName ?? "N/A") : "N/A")</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pie-chart-container" id="pie-chart-container-offer2-id">
+                <canvas class="pie-chart" id="pie-chart-offer2-id"></canvas>
+                <div class="legend" id="legend-offer2-id"></div>
+            </div>
+            <div class="text">
+                <div class="count">Health: @(viewModel.TopOfferConsultant.Count > 1 ? (viewModel.TopOfferConsultant[1]?.Health ?? 0) : 0)</div>
+                <div class="count">Vehicle: @(viewModel.TopOfferConsultant.Count > 1 ? (viewModel.TopOfferConsultant[1]?.Vehicle ?? 0) : 0)</div>
+                <div class="count">Natural Disaster: @(viewModel.TopOfferConsultant.Count > 1 ? (viewModel.TopOfferConsultant[1]?.ND ?? 0) : 0)</div>
+                <div class="header">2<sup>nd</sup>: @(viewModel.TopOfferConsultant.Count > 1 ? (viewModel.TopOfferConsultant[1]?.FullName ?? "N/A") : "N/A")</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pie-chart-container" id="pie-chart-container-offer3-id">
+                <canvas class="pie-chart" id="pie-chart-offer3-id"></canvas>
+                <div class="legend" id="legend-offer3-id"></div>
+            </div>
+            <div class="text">
+                <div class="count">Health: @(viewModel.TopOfferConsultant.Count > 2 ? (viewModel.TopOfferConsultant[2]?.Health ?? 0) : 0)</div>
+                <div class="count">Vehicle: @(viewModel.TopOfferConsultant.Count > 2 ? (viewModel.TopOfferConsultant[2]?.Vehicle ?? 0) : 0)</div>
+                <div class="count">Natural Disaster: @(viewModel.TopOfferConsultant.Count > 2 ? (viewModel.TopOfferConsultant[2]?.ND ?? 0) : 0)</div>
+                <div class="header">3<sup>rd</sup>: @(viewModel.TopOfferConsultant.Count > 2 ? (viewModel.TopOfferConsultant[2]?.FullName ?? "N/A") : "N/A")</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-container" id="card-container-policy-id">
+        <div class="tag">
+            <div class="tag-text">Policy</div>
+        </div>
+        <div class="card">
+            <div class="pie-chart-container" id="pie-chart-container-policy1-id">
+                <canvas class="pie-chart" id="pie-chart-policy1-id"></canvas>
+                <div class="legend" id="legend-policy1-id"></div>
+            </div>
+            <div class="text">
+                <div class="count">Health: @(viewModel.TopPolicyConsultant.Count > 0 ? (viewModel.TopPolicyConsultant[0]?.Health ?? 0) : 0)</div>
+                <div class="count">Vehicle: @(viewModel.TopPolicyConsultant.Count > 0 ? (viewModel.TopPolicyConsultant[0]?.Vehicle ?? 0) : 0)</div>
+                <div class="count">Natural Disaster: @(viewModel.TopPolicyConsultant.Count > 0 ? (viewModel.TopPolicyConsultant[0]?.ND ?? 0) : 0)</div>
+                <div class="header">1<sup>st</sup>: @(viewModel.TopPolicyConsultant.Count > 0 ? (viewModel.TopPolicyConsultant[0]?.FullName ?? "N/A") : "N/A")</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pie-chart-container" id="pie-chart-container-policy2-id">
+                <canvas class="pie-chart" id="pie-chart-policy2-id"></canvas>
+                <div class="legend" id="legend-policy2-id"></div>
+            </div>
+            <div class="text">
+                <div class="count">Health: @(viewModel.TopPolicyConsultant.Count > 1 ? (viewModel.TopPolicyConsultant[1]?.Health ?? 0) : 0)</div>
+                <div class="count">Vehicle: @(viewModel.TopPolicyConsultant.Count > 1 ? (viewModel.TopPolicyConsultant[1]?.Vehicle ?? 0) : 0)</div>
+                <div class="count">Natural Disaster: @(viewModel.TopPolicyConsultant.Count > 1 ? (viewModel.TopPolicyConsultant[1]?.ND ?? 0) : 0)</div>
+                <div class="header">2<sup>nd</sup>: @(viewModel.TopPolicyConsultant.Count > 1 ? (viewModel.TopPolicyConsultant[1]?.FullName ?? "N/A") : "N/A")</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pie-chart-container" id="pie-chart-container-policy3-id">
+                <canvas class="pie-chart" id="pie-chart-policy3-id"></canvas>
+                <div class="legend" id="legend-policy3-id"></div>
+            </div>
+            <div class="text">
+                <div class="count">Health: @(viewModel.TopPolicyConsultant.Count > 2 ? (viewModel.TopPolicyConsultant[2]?.Health ?? 0) : 0)</div>
+                <div class="count">Vehicle: @(viewModel.TopPolicyConsultant.Count > 2 ? (viewModel.TopPolicyConsultant[2]?.Vehicle ?? 0) : 0)</div>
+                <div class="count">Natural Disaster: @(viewModel.TopPolicyConsultant.Count > 2 ? (viewModel.TopPolicyConsultant[2]?.ND ?? 0) : 0)</div>
+                <div class="header">3<sup>rd</sup>: @(viewModel.TopPolicyConsultant.Count > 2 ? (viewModel.TopPolicyConsultant[2]?.FullName ?? "N/A") : "N/A")</div>
+            </div>
+        </div>
+    </div>
+    <div class="last-items-container">
+        <div class="last-offers">
+            <div class="last-items-container-header">
+                <h2>Top consultant by policies</h2>
+                <hr />
+            </div>
+            <div class="tableDiv">
+                <table id="offerListTable">
+                    <thead>
+                        <tr>
+                            <td>Full Name</td>
+                            <td>Username</td>
+                            <td>Gender</td>
+                            <td>City</td>
+                            <td>Town</td>
+                            <td>Email</td>
+                            <td>Date of Birth</td>
+                            <td>Health Policy</td>
+                            <td>Vehicle Policy</td>
+                            <td>ND Policy</td>
+                            <td>Total Policy</td>
+                            <td>Delete</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var consultant in viewModel.AllConsultants)
+                        {
+                            if(String.Equals(consultant.Type, "A"))
+                            {
+                                <tr>
+                                    <td>@{
+                                            var FullName = consultant.Name + " " + consultant.Surname;
+                                        }
+                                        @FullName
+                                    </td>
+                                    <td>@consultant.UserName</td>
+                                    <td>@consultant.Gender</td>
+                                    <td>@consultant.City</td>
+                                    <td>@consultant.Town</td>
+                                    <td>@consultant.Email</td>
+                                    <td>@Convert.ToDateTime(consultant.DateOfBirth).ToString("dd/MM/yyyy")</td>
+                                    <td>@consultant.HealthPolicy</td>
+                                    <td>@consultant.VehiclePolicy</td>
+                                    <td>@consultant.NDPolicy</td>
+                                    <td>
+                                        @(consultant.TotalPolicy)
+                                    </td>
+                                    <td>
+                                        <form asp-action="passivateConsultant" method="post" onsubmit="confirmDelete(event);">
+                                            <input type="hidden" name="Username" value="@consultant.UserName" />
+                                            <button type="submit" class="rounded-pill btn btn-lg btn-outline-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/confirmation.js"></script>
+    <script>
+        function createPieChart(canvasId, labels, data, backgroundColors, borderColors) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: backgroundColors,
+                        borderColor: borderColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                boxWidth: 20,
+                                padding: 10
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
+        createPieChart(
+            'pie-chart-offer1-id',
+            ['H', 'V', 'N'],
+            [
+        @(viewModel.TopOfferConsultant.Count > 0 ? (viewModel.TopOfferConsultant[0]?.Health ?? 0) : 0),
+        @(viewModel.TopOfferConsultant.Count > 0 ? (viewModel.TopOfferConsultant[0]?.Vehicle ?? 0) : 0),
+        @(viewModel.TopOfferConsultant.Count > 0 ? (viewModel.TopOfferConsultant[0]?.ND ?? 0) : 0)
+                ],
+            ['#FF6384', '#36A2EB', '#FFCE56'],
+            ['#FF6384', '#36A2EB', '#FFCE56']
+        );
+
+        createPieChart(
+            'pie-chart-offer2-id',
+            ['H', 'V', 'N'],
+            [
+        @(viewModel.TopOfferConsultant.Count > 1 ? (viewModel.TopOfferConsultant[1]?.Health ?? 0) : 0),
+        @(viewModel.TopOfferConsultant.Count > 1 ? (viewModel.TopOfferConsultant[1]?.Vehicle ?? 0) : 0),
+        @(viewModel.TopOfferConsultant.Count > 1 ? (viewModel.TopOfferConsultant[1]?.ND ?? 0) : 0)
+                ],
+            ['#FF6384', '#36A2EB', '#FFCE56'],
+            ['#FF6384', '#36A2EB', '#FFCE56']
+        );
+
+        createPieChart(
+            'pie-chart-offer3-id',
+            ['H', 'V', 'N'],
+            [
+        @(viewModel.TopOfferConsultant.Count > 2 ? (viewModel.TopOfferConsultant[2]?.Health ?? 0) : 0),
+        @(viewModel.TopOfferConsultant.Count > 2 ? (viewModel.TopOfferConsultant[2]?.Vehicle ?? 0) : 0),
+        @(viewModel.TopOfferConsultant.Count > 2 ? (viewModel.TopOfferConsultant[2]?.ND ?? 0) : 0)
+                ],
+            ['#FF6384', '#36A2EB', '#FFCE56'],
+            ['#FF6384', '#36A2EB', '#FFCE56']
+        );
+
+        createPieChart(
+            'pie-chart-policy1-id',
+            ['H', 'V', 'N'],
+            [
+        @(viewModel.TopPolicyConsultant.Count > 0 ? (viewModel.TopPolicyConsultant[0]?.Health ?? 0) : 0),
+        @(viewModel.TopPolicyConsultant.Count > 0 ? (viewModel.TopPolicyConsultant[0]?.Vehicle ?? 0) : 0),
+        @(viewModel.TopPolicyConsultant.Count > 0 ? (viewModel.TopPolicyConsultant[0]?.ND ?? 0) : 0)
+                ],
+            ['#FF6384', '#36A2EB', '#FFCE56'],
+            ['#FF6384', '#36A2EB', '#FFCE56']
+        );
+
+        createPieChart(
+            'pie-chart-policy2-id',
+            ['H', 'V', 'N'],
+            [
+        @(viewModel.TopPolicyConsultant.Count > 1 ? (viewModel.TopPolicyConsultant[1]?.Health ?? 0) : 0),
+        @(viewModel.TopPolicyConsultant.Count > 1 ? (viewModel.TopPolicyConsultant[1]?.Vehicle ?? 0) : 0),
+        @(viewModel.TopPolicyConsultant.Count > 1 ? (viewModel.TopPolicyConsultant[1]?.ND ?? 0) : 0)
+                ],
+            ['#FF6384', '#36A2EB', '#FFCE56'],
+            ['#FF6384', '#36A2EB', '#FFCE56']
+        );
+
+        createPieChart(
+            'pie-chart-policy3-id',
+            ['H', 'V', 'N'],
+            [
+        @(viewModel.TopPolicyConsultant.Count > 2 ? (viewModel.TopPolicyConsultant[2]?.Health ?? 0) : 0),
+        @(viewModel.TopPolicyConsultant.Count > 2 ? (viewModel.TopPolicyConsultant[2]?.Vehicle ?? 0) : 0),
+        @(viewModel.TopPolicyConsultant.Count > 2 ? (viewModel.TopPolicyConsultant[2]?.ND ?? 0) : 0)
+                ],
+            ['#FF6384', '#36A2EB', '#FFCE56'],
+            ['#FF6384', '#36A2EB', '#FFCE56']
+        );
+    </script>
+</body>

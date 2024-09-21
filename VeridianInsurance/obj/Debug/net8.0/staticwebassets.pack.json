@@ -1,0 +1,417 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\VeridianInsurance.bundle.scp.css",
+      "PackagePath": "staticwebassets\\VeridianInsurance.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\cardBack.png",
+      "PackagePath": "staticwebassets\\assets\\cardBack.png"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\cardBack2.png",
+      "PackagePath": "staticwebassets\\assets\\cardBack2.png"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\cardBack3.jpg",
+      "PackagePath": "staticwebassets\\assets\\cardBack3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\cardFront.png",
+      "PackagePath": "staticwebassets\\assets\\cardFront.png"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\chip.png",
+      "PackagePath": "staticwebassets\\assets\\chip.png"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\icomoon\\Read Me.txt",
+      "PackagePath": "staticwebassets\\assets\\icomoon\\Read Me.txt"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\icomoon\\demo-files\\demo.css",
+      "PackagePath": "staticwebassets\\assets\\icomoon\\demo-files\\demo.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\icomoon\\demo-files\\demo.js",
+      "PackagePath": "staticwebassets\\assets\\icomoon\\demo-files\\demo.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\icomoon\\demo.html",
+      "PackagePath": "staticwebassets\\assets\\icomoon\\demo.html"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\icomoon\\fonts\\icomoon.eot",
+      "PackagePath": "staticwebassets\\assets\\icomoon\\fonts\\icomoon.eot"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\icomoon\\fonts\\icomoon.svg",
+      "PackagePath": "staticwebassets\\assets\\icomoon\\fonts\\icomoon.svg"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\icomoon\\fonts\\icomoon.ttf",
+      "PackagePath": "staticwebassets\\assets\\icomoon\\fonts\\icomoon.ttf"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\icomoon\\fonts\\icomoon.woff",
+      "PackagePath": "staticwebassets\\assets\\icomoon\\fonts\\icomoon.woff"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\icomoon\\selection.json",
+      "PackagePath": "staticwebassets\\assets\\icomoon\\selection.json"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\icomoon\\style.css",
+      "PackagePath": "staticwebassets\\assets\\icomoon\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\logo.jpg",
+      "PackagePath": "staticwebassets\\assets\\logo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\logo.svg",
+      "PackagePath": "staticwebassets\\assets\\logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\miniLogo.svg",
+      "PackagePath": "staticwebassets\\assets\\miniLogo.svg"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\visa.png",
+      "PackagePath": "staticwebassets\\assets\\visa.png"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\visa.svg",
+      "PackagePath": "staticwebassets\\assets\\visa.svg"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\assets\\visa2.png",
+      "PackagePath": "staticwebassets\\assets\\visa2.png"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\admin.css",
+      "PackagePath": "staticwebassets\\css\\admin.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\customer.css",
+      "PackagePath": "staticwebassets\\css\\customer.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\dashboard.css",
+      "PackagePath": "staticwebassets\\css\\dashboard.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\healthPolicy.css",
+      "PackagePath": "staticwebassets\\css\\healthPolicy.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\loginBox.css",
+      "PackagePath": "staticwebassets\\css\\loginBox.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\mainIndex.css",
+      "PackagePath": "staticwebassets\\css\\mainIndex.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\nDPolicy.css",
+      "PackagePath": "staticwebassets\\css\\nDPolicy.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\navbar.css",
+      "PackagePath": "staticwebassets\\css\\navbar.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\payment.css",
+      "PackagePath": "staticwebassets\\css\\payment.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\payments.css",
+      "PackagePath": "staticwebassets\\css\\payments.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\pdf.css",
+      "PackagePath": "staticwebassets\\css\\pdf.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\pleaseLogin.css",
+      "PackagePath": "staticwebassets\\css\\pleaseLogin.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\registerBox.css",
+      "PackagePath": "staticwebassets\\css\\registerBox.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\css\\vehiclePolicy.css",
+      "PackagePath": "staticwebassets\\css\\vehiclePolicy.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\js\\confirmation.js",
+      "PackagePath": "staticwebassets\\js\\confirmation.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\js\\liveSearch.js",
+      "PackagePath": "staticwebassets\\js\\liveSearch.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\js\\navbar.js",
+      "PackagePath": "staticwebassets\\js\\navbar.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\js\\payment.js",
+      "PackagePath": "staticwebassets\\js\\payment.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\90539\\Desktop\\internship\\VeridianInsurance\\VeridianInsurance\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.VeridianInsurance.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.VeridianInsurance.props",
+      "PackagePath": "build\\VeridianInsurance.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.VeridianInsurance.props",
+      "PackagePath": "buildMultiTargeting\\VeridianInsurance.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.VeridianInsurance.props",
+      "PackagePath": "buildTransitive\\VeridianInsurance.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

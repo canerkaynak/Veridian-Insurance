@@ -1,0 +1,258 @@
+﻿@page
+@using VeridianInsurance.Models
+@model VeridianInsurance.Models.ViewModels.policyViewModel
+
+@{
+    var viewModel = ViewBag.Message as VeridianInsurance.Models.ViewModels.policyViewModel;
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/vehiclePolicy.css" type="text/css" />
+</head>
+
+<body>
+    <div class="grid">
+        <div class="vPolicyBoxLeft">
+            <div class="gridHeader">
+                <h2>Policies</h2>
+                <hr />
+            </div>
+            <div class="searchBox">
+                <div class="search">
+                    <label>
+                        <input id="polNoSearchInput" type="text" onkeyup="polNoSearchFunction()" placeholder="Policy No">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+                <div class="search">
+                    <label>
+                        <input id="custIdSearchInput" type="text" onkeyup="custIdSearchFunction()" placeholder="Customer Id">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
+            </div>
+            <div class="tableDiv">
+                <table id="policyListTable">
+                    <thead>
+                        <tr>
+                            <td>Policy No</td>
+                            <td>Customer Id</td>
+                            <td>Brand</td>
+                            <td>Model</td>
+                            <td>Model Year</td>
+                            <td>Chassis Serial Number</td>
+                            <td>Price</td>
+                            <td>Status</td>
+                            <td>Approved By</td>
+                            <td>Date of Issue</td>
+                            <td>Payment</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var v in viewModel.VehicleDetails)
+                        {
+                            Policy policy = viewModel.Policies?.FirstOrDefault(p => p.PolicyNo == v.PolicyNo);
+                            <tr>
+                                <td>@policy.PolicyNo</td>
+                                <td>@policy.CustomerID</td>
+                                <td>@v.Brand</td>
+                                <td>@v.Model</td>
+                                <td>@v.ModelYear</td>
+                                <td>@v.ChassisSerialNumber</td>
+                                <td>@policy.PriceOfThePolicy</td>
+                                <td>@policy.Status</td>
+                                <td>@policy.ApprovedBy</td>
+                                <td>@policy.DateOfIssue.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td>
+                                    @{
+                                        var paymentExists = viewModel.Payments?.Any(p => p.PolicyNo == v.PolicyNo) ?? false;
+
+                                        if (paymentExists)
+                                        {
+                                            @:Paid
+                                        }
+                                        else
+                                        {
+                                            if (policy.Status != 'I')
+                                            {
+                                                <form asp-action="Index" asp-controller="VehiclePayment" method="post">
+                                                    <input type="hidden" name="policyNo" value="@policy.PolicyNo" />
+                                                    <input type="hidden" name="payedAmount" value="@policy.PriceOfThePolicy" />
+                                                    <input type="hidden" name="CustomerId" value="@policy.CustomerID" />
+                                                    <input type="hidden" name="chassisNumber" value="@v.ChassisSerialNumber" />
+                                                    <input type="hidden" name="plateCityCode" value="@v.PlateCityCode" />
+                                                    <input type="hidden" name="plateCode" value="@v.PlateCode" />
+                                                    <input type="hidden" name="brand" value="@v.Brand" />
+                                                    <input type="hidden" name="model" value="@v.Model" />
+                                                    <input type="hidden" name="modelYear" value="@v.ModelYear" />
+                                                    <button type="submit" class="rounded-pill btn btn-outline-danger btn-sm">Pay</button>
+                                                </form>
+                                            }
+                                            else
+                                            {
+                                                @:Invalid
+                                            }
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="vPolicyBoxRight">
+            <div class="gridHeader">
+                <h2>New Policy</h2>
+                <hr />
+            </div>
+            <form id="newVPolicyForm" action="@Url.Action("NewVehiclePolicy", "VehiclePolicyPDF")" method="post">
+                <div name="customerId" asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div name="customerId" class="form-floating mb-3">
+                    <select name="customerId" class="form-control rounded-pill w-100">
+                        @foreach (var customer in ViewBag.Message.Customers)
+                        {
+                            <option name="customerId" value="@customer.Id">@customer.Id</option>
+                        }
+                    </select>
+                    <label>Customer Id</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3 col">
+                    <input name="plateCityCode" id="plateCityCodeId" class="form-control rounded-pill w-100" autocomplete="plateCityCode" aria-required="true" placeholder="Plate City Code" maxlength="10" required />
+                    <label for="plateCityCodeId">Plate City Code</label>
+                </div>
+                <div class="form-floating mb-3 col">
+                    <input name="plateCode" id="plateCodeId" class="form-control rounded-pill w-100" autocomplete="plateCode" aria-required="true" placeholder="Plate Code" required />
+                    <label for="plateCodeId">Plate Code</label>
+                </div>
+                <div name="brand" class="form-floating mb-3">
+                    <select name="brand" id="brandSelect" class="form-control rounded-pill w-100" onchange="updateModelDropdown()">
+                        <option name="brand" value="">Select Brand</option>
+                        @{
+                            string pastBrand = "a";
+                            foreach (var vehicle in viewModel.VehicleInformation)
+                            {
+                                if(!String.Equals(pastBrand, vehicle.Brand))
+                                {
+                                    var brandInfo = $"({vehicle.BrandCode}) {vehicle.Brand}";
+                                    <option value="@vehicle.BrandCode">@brandInfo</option>
+                                }
+                                pastBrand = vehicle.Brand;
+                            }
+                        }
+                    </select>
+                    <label>Brand</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div name="model" class="form-floating mb-3">
+                    <select name="model" id="modelSelect" class="form-control rounded-pill w-100" onchange="updateYearDropdown()">
+                        <option name="model" value="">Select Model</option>
+                    </select>
+                    <label>Model</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div name="modelYear" class="form-floating mb-3">
+                    <select name="modelYear" id="yearSelect" class="form-control rounded-pill w-100">
+                        <option name="modelYear" value="">Select Year</option>
+                    </select>
+                    <label>Model Year</label>
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3 col">
+                    <input name="chassisNumber" id="chassisNumberId" class="form-control rounded-pill w-100" autocomplete="chassisNumber" aria-required="true" placeholder="Chassis Number" maxlength="17" required />
+                    <label for="chassisNumberId">Chassis Number</label>
+                </div>
+                <button id="registerSubmit" type="submit" class=" rounded-pill w-50 btn btn-lg btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function polNoSearchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("polNoSearchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("policyListTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    }
+                    else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function custIdSearchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("custIdSearchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("policyListTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    }
+                    else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+        
+        const brandModelData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(viewModel.VehicleInformation));
+
+        function updateModelDropdown() {
+            const selectedBrandCode = document.getElementById("brandSelect").value;
+            const modelSelect = document.getElementById("modelSelect");
+
+            modelSelect.innerHTML = "<option value=''>Select Model</option>";
+
+            if (selectedBrandCode) {
+                const filteredModels = brandModelData.filter(vehicle => vehicle.BrandCode === selectedBrandCode);
+
+                filteredModels.forEach(vehicle => {
+                    const option = document.createElement("option");
+                    option.value = vehicle.TypeCode;
+                    option.text = `(${vehicle.TypeCode}) ${vehicle.Model}`;
+                    modelSelect.appendChild(option);
+                });
+            }
+        }
+
+        const brandValueData = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(viewModel.VehicleValue));
+
+        function updateYearDropdown() {
+            const selectedBrandCode = document.getElementById("brandSelect").value;
+            const selectedModelCode = document.getElementById("modelSelect").value;
+            const yearSelect = document.getElementById("yearSelect");
+
+            yearSelect.innerHTML = "<option value=''>Select Year</option>";
+
+            if (selectedBrandCode && selectedModelCode) {
+                const vehicle = brandModelData.find(vehicle => vehicle.BrandCode === selectedBrandCode && vehicle.TypeCode === selectedModelCode);
+
+                if (vehicle) {
+                    const filteredYears = brandValueData.filter(value => value.VehicleID === vehicle.VehicleID);
+
+                    filteredYears.forEach(value => {
+                        const option = document.createElement("option");
+                        option.value = value.Year;
+                        option.text = value.Year;
+                        yearSelect.appendChild(option);
+                    });
+                }
+            }
+        }
+    </script>
+</body>

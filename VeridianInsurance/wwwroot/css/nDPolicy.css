@@ -1,0 +1,168 @@
+﻿.grid
+{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+    margin-top: 2%;
+}
+
+.nDPolicyBoxLeft
+{
+    position: relative;
+    display: block;
+    min-height: 90vh;
+    height: 80vh;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 10px 25px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.nDPolicyBoxRight
+{
+    position: relative;
+    min-height: 90vh;
+    height: 80vh;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 10px 25px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.tableDiv
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 70vh;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+}
+
+::-webkit-scrollbar-track
+{
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background-color: #2a2185;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-button
+{
+    display: none;
+}
+
+.grid .gridHeader
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.gridHeader h2
+{
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.searchBox
+{
+    display: flex;
+}
+
+.search
+{
+    position: relative;
+    width: 200px;
+    margin: 0 10px;
+}
+
+.search label
+{
+    position: relative;
+    width: 100%;
+}
+
+.search label input
+{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+
+.search label ion-icon
+{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 1.2rem;
+    top: 50%;
+    left: 10px;
+    transform: translate( 0, -50%);
+}
+
+.grid table
+{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.grid table thead td
+{
+    font-weight: 1000;
+    font-size: x-small;
+}
+
+.grid .nDPolicyBoxLeft table tr
+{
+    color: var(--black1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+    .grid .nDPolicyBoxLeft table tr:last-child
+    {
+        border-bottom: none;
+    }
+
+.grid .nDPolicyBoxLeft table tbody tr:hover
+{
+    background: var(--blue);
+    color: var(--white);
+}
+
+.grid .nDPolicyBoxLeft table tr td
+{
+    padding: 10px;
+}
+
+.grid .nDPolicyBoxLeft table tr td
+{
+    text-align: left;
+    width: auto;
+}
+
+.grid .nDPolicyBoxLeft table tr td:last-child
+{
+    text-align: right;
+}
+
+
+.newnDPolicyFormClass
+{
+    position: absolute;
+    width: 80%;
+}

@@ -1,0 +1,220 @@
+﻿@page
+@using VeridianInsurance.Models
+@model VeridianInsurance.Models.ViewModels.policyViewModel
+
+@{
+    var viewModel = ViewBag.Message as VeridianInsurance.Models.ViewModels.policyViewModel;
+
+    var vehicleOfferCount = viewModel.Policies.Count(p => p.Status == 'T' && Convert.ToInt32(p.BranchCode) == 340);
+    var healthOfferCount = viewModel.Policies.Count(p => p.Status == 'T' && Convert.ToInt32(p.BranchCode) == 610);
+    var nDOfferCount = viewModel.Policies.Count(p => p.Status == 'T' && Convert.ToInt32(p.BranchCode) == 199);
+
+    var vehiclePolicyCount = viewModel.Policies.Count(p => p.Status == 'P' && Convert.ToInt32(p.BranchCode) == 340);
+    var healthPolicyCount = viewModel.Policies.Count(p => p.Status == 'P' && Convert.ToInt32(p.BranchCode) == 610);
+    var nDPolicyCount = viewModel.Policies.Count(p => p.Status == 'P' && Convert.ToInt32(p.BranchCode) == 199);
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="card">
+            <div class="pie-chart-container" id="pie-chart-container1-id">
+                <canvas class="pie-chart" id="pie-chart1-id"></canvas>
+                <div class="legend" id="legend1-id"></div>
+            </div>
+            <div class="text">
+                <div class="rate">Policy: @vehiclePolicyCount, Offer: @vehicleOfferCount</div>
+                <div class="header">Vehicle Insurance</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pie-chart-container" id="pie-chart-container2-id">
+                <canvas class="pie-chart" id="pie-chart2-id"></canvas>
+                <div class="legend" id="legend2-id"></div>
+            </div>
+            <div class="text">
+                <div class="rate">Policy: @healthPolicyCount, Offer: @healthOfferCount</div>
+                <div class="header">Health Insurance</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="pie-chart-container" id="pie-chart-container3-id">
+                <canvas class="pie-chart" id="pie-chart3-id"></canvas>
+                <div class="legend" id="legend3-id"></div>
+            </div>
+            <div class="text">
+                <div class="rate">Policy: @nDPolicyCount, Offer: @nDOfferCount</div>
+                <div class="header">ND Insurance</div>
+            </div>
+        </div>
+    </div>
+    <div class="last-items-container">
+        <div class="last-offers">
+            <div class="last-items-container-header">
+                <h2>Last offers</h2>
+                <hr />
+            </div>
+            <div class="tableDiv">
+                <table id="offerListTable">
+                    <thead>
+                        <tr>
+                            <td>Policy No</td>
+                            <td>Customer Id</td>
+                            <td>Branch</td>
+                            <td>Approved By</td>
+                            <td>Price</td>
+                            <td>Date of Issue</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var policy in viewModel.Policies.Where(p => p.Status == 'T').OrderByDescending(p => p.DateOfIssue).Take(6))
+                        {
+                            <tr>
+                                <td>@policy.PolicyNo</td>
+                                <td>@policy.CustomerID</td>
+                                <td>
+                                    @{
+                                        if(Convert.ToInt32(policy.BranchCode) == 340)
+                                        {
+                                            @:Vehicle
+                                        }
+                                        else if (Convert.ToInt32(policy.BranchCode) == 199)
+                                        {
+                                            @:ND
+                                        }
+                                        else if (Convert.ToInt32(policy.BranchCode) == 610)
+                                        {
+                                            @:Health
+                                        }
+                                        else
+                                        {
+                                            @:Error
+                                        }
+                                    }
+                                </td>
+                                <td>@policy.ApprovedBy</td>
+                                <td>@policy.PriceOfThePolicy</td>
+                                <td>@policy.DateOfIssue.ToString("dd/MM/yyyy HH:mm")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="last-policies">
+            <div class="last-items-container-header">
+                <h2>Last policies</h2>
+                <hr />
+            </div>
+            <div class="tableDiv">
+                <table id="policyListTable">
+                    <thead>
+                        <tr>
+                            <td>Policy No</td>
+                            <td>Customer Id</td>
+                            <td>Branch</td>
+                            <td>Approved By</td>
+                            <td>Price</td>
+                            <td>Date of Issue</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var policy in viewModel.Policies.Where(p => p.Status == 'P').OrderByDescending(p => p.DateOfIssue).Take(6))
+                        {
+                            <tr>
+                                <td>@policy.PolicyNo</td>
+                                <td>@policy.CustomerID</td>
+                                <td>
+                                    @{
+                                        if (Convert.ToInt32(policy.BranchCode) == 340)
+                                        {
+                                            @:Vehicle
+                                        }
+                                        else if (Convert.ToInt32(policy.BranchCode) == 199)
+                                        {
+                                            @:ND
+                                        }
+                                        else if (Convert.ToInt32(policy.BranchCode) == 610)
+                                        {
+                                            @:Health
+                                        }
+                                        else
+                                        {
+                                            @:Error
+                                        }
+                                    }
+                                </td>
+                                <td>@policy.ApprovedBy</td>
+                                <td>@policy.PriceOfThePolicy</td>
+                                <td>@policy.DateOfIssue.ToString("dd/MM/yyyy HH:mm")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        function createPieChart(canvasId, labels, data, backgroundColors, borderColors) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            const myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: backgroundColors,
+                        borderColor: borderColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right', // Legend'in sağda görünmesini sağlar
+                            labels: {
+                                boxWidth: 20, // Legend kutularının genişliği
+                                padding: 10 // Legend kutuları arasındaki boşluk
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function (tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        createPieChart(
+            'pie-chart1-id',
+            ['P', 'O'],
+            [@vehiclePolicyCount, @vehicleOfferCount],
+            ['#FF6384', '#2a2185'],
+            ['#FF6384', '#2a2185']
+        );
+        createPieChart(
+            'pie-chart2-id',
+            ['P', 'O'],
+            [@healthPolicyCount, @healthOfferCount],
+            ['#FF6384', '#2a2185'],
+            ['#FF6384', '#2a2185']
+        );
+        createPieChart(
+            'pie-chart3-id',
+            ['P', 'O'],
+            [@nDPolicyCount, @nDOfferCount],
+            ['#FF6384', '#2a2185'],
+            ['#FF6384', '#2a2185']
+        );
+    </script>
+</body>

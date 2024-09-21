@@ -1,0 +1,47 @@
+﻿@page
+@using VeridianInsurance.Models
+@model VeridianInsurance.Models.ViewModels.policyViewModel
+
+@{
+    var viewModel = ViewBag.Message as VeridianInsurance.Models.ViewModels.policyViewModel;
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/pdf.css" type="text/css" />
+</head>
+<body>
+    <div id="pdfContent">
+        <div class="header">
+            <img src="~/assets/logo.svg" alt="Veridian Insurance Logo">
+            <h1>Veridian Insurance</h1>
+        </div>
+        <div class="policy-details">
+            <h2>Insurance Policy Details</h2>
+            @foreach (var i in viewModel.PolicyData)
+            {
+                <div class="detail-row">
+                    <span>@i.Key:</span>
+                    <span>@i.Value</span>
+                </div>
+            }
+
+        </div>
+    </div>
+    <div class="row buttonGrid">
+        <div class="col">
+            <button class=" rounded-pill w-100 btn btn-lg btn-danger" onclick="location.href='@Url.Action("Index", "HealthPolicy")'">Reject</button>
+        </div>
+        <div class="col col-lg-2"></div>
+        <div class="col">
+            <form asp-action="Index" asp-controller="HealthPayment" method="post">
+                <input type="hidden" name="policyNo" value="@viewModel.Policy.PolicyNo" />
+                <input type="hidden" name="payedAmount" value="@viewModel.Policy.PriceOfThePolicy" />
+                <input type="hidden" name="customerId" value="@viewModel.Policy.CustomerID" />
+                <input type="hidden" name="isSmoke" value="@viewModel.Health.IsSmoke" />
+                <input type="hidden" name="isHadOperation" value="@viewModel.Health.IsHadOperation" />
+                <button type="submit" class="rounded-pill w-100 btn btn-lg btn-primary">Pay ₺@viewModel.Policy.PriceOfThePolicy</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

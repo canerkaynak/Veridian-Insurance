@@ -1,0 +1,65 @@
+﻿:root
+{
+    --blue: #2a2185;
+    --white: #fff;
+    --gray: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+}
+.headLineColumn
+{
+    color: var(--blue);
+}
+.register-main-container
+{
+    display: block;
+    align-self: stretch;
+    margin: 5vh auto 5vh;
+    width: 50%;
+    min-width: 400px;
+    height: 90vh;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 10px 25px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #2a2185;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+.registerBox
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 80vh;
+}
+.headLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.headLineColumn
+{
+    display: flex;
+    flex-direction: column;
+}
+.buton
+{
+    margin-bottom: 2vh;
+}
+body
+{
+    background: var(--blue);
+}

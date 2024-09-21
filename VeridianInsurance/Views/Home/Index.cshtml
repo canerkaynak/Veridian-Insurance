@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using VeridianInsurance.Models
+@inject SignInManager<CustomUser> SignInManager
+@inject UserManager<CustomUser> UserManager
+
+@if (!SignInManager.IsSignedIn(User))
+{
+    ViewData["Title"] = "Home Page";
+
+    <head>
+        <link rel="stylesheet" href="~/css/mainIndex.css" type="text/css" />
+    </head>
+
+    <body >
+        <div class="box">
+            <img class="logo" src="~/assets/logo.svg" alt="Logo">
+            <h2 class="head">Veridian Insurance</h2>
+            <hr class="divider" />
+            <a asp-area="Identity" asp-page="/Account/Login">
+                <button id="login" type="submit" class="rounded-pill w-75 btn btn-lg btn-light m-1">Sign In</button>
+            </a>
+            <a asp-area="Identity" asp-page="/Account/Register">
+                <button id="register" type="submit" class="rounded-pill w-75 btn btn-lg btn-light m-1">Register</button>
+            </a>
+        </div>
+    </body>
+}
+
+else
+{
+    <script>
+        window.location.href = '@Url.Action("Index", "Dashboard")';
+    </script>
+}

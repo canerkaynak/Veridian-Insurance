@@ -1,0 +1,61 @@
+﻿<head>
+    <link rel="stylesheet" href="~/css/payment.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="card-container" id="cardContainerId">
+            <div class="card" id="cardId">
+                <div class="front">
+                    <img class="chipImg" src="~/assets/chip.png" alt="chip">
+                    <img class="visaLogoFront" src="~/assets/visa2.png" alt="visa">
+                    <h3 class="cardNumberIllustrator" id="cardNumberIllustratorId">#### #### #### ####</h3>
+                    <h6 class="cardHolderHead" id="cardHolderHeadId">Card Holder</h6>
+                    <h5 class="cardHolderIllustrator" id="cardHolderIllustratorId">***** *****</h5>
+                </div>
+                <div class="back">
+                    <img class="visaLogoBack" src="~/assets/visa.png" alt="visa">
+                    <div class="blackLine"></div>
+                    <div class="whiteLine"></div>
+                    <p class="expireDateHead" id="expireDateHeadId">Expire Date</p>
+                    <p class="expireDateIllustrator" id="expireDateIllustratorId">**/****</p>
+                    <p class="cvvHead" id="cvvHeadId">CVV</p>
+                    <p class="cvvIllustrator" id="cvvIllustratorId">***</p>
+                </div>
+            </div>
+        </div>
+        <div class="input-container">
+            <div class="formCls">
+                <form id="paymentForm" action="@Url.Action("NewPayment", "VehiclePayment")" method="post">
+                    <div class="gridContainer container">
+                        <div class="row">
+                            <div class="form-floating mb-3 col">
+                                <input name="cardNumber" id="cardNumberId" class="form-control rounded-pill w-100" autocomplete="cardNumber" aria-required="true" placeholder="Card Number" maxlength="19" required />
+                                <label for="cardNumberId">Card Number</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-floating mb-3 col">
+                                <input name="cardHolder" id="cardHolderId" class="form-control rounded-pill w-100" autocomplete="on" aria-required="true" placeholder="Card Holder" maxlength="25" required />
+                                <label for="cardHolder">Card Holder</label>
+                            </div>
+                            <div class="form-floating mb-3 col">
+                                <input name="expireDate" id="expireDateId" type="month" class="form-control rounded-pill w-100" autocomplete="on" aria-required="true" required />
+                                <label for="expireDateId">Expire Date</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-floating mb-3 col">
+                                <input name="cvv" id="cvvId" class="form-control rounded-pill w-100" autocomplete="on" aria-required="true" placeholder="CVV" maxlength="3" required />
+                                <label for="cvvId">CVV</label>
+                            </div>
+                            <div class="col">
+                                <button id="pay" type="submit" class="rounded-pill w-100 btn btn-lg btn-primary">Pay ₺@ViewBag.payedAmount</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/payment.js"></script>
+</body>

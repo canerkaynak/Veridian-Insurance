@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using VeridianInsurance.Models
+@inject SignInManager<CustomUser> SignInManager
+@inject UserManager<CustomUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Veridian Insurance</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    }
+    
+    <link rel="stylesheet" href="~/VeridianInsurance.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/navbar.css" />
+
+</head>
+<body>
+        @* =============== Navigation =============== *@
+
+    <partial name="_Navbar" />
+    <div class="main">
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="~/js/navbar.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

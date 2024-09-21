@@ -1,0 +1,99 @@
+﻿@page
+@model RegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/registerBox.css" type="text/css" />
+</head>
+
+<body>
+    <div class="register-main-container">
+        <div class="registerBox">
+            <div class="headLine">
+                <div class="headLineColumn">
+                    <h2>Create a new account</h2>
+                </div>
+                <div class="headLineColumn">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <button type="button" class="rounded-pill btn btn-lg btn-primary m-1">Back</button>
+                </a>
+                </div>
+            </div>
+            <hr />
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                <div class="form-floating mb-3">
+                    <select asp-for="Input.Role" class="form-control rounded-pill w-50">
+                        <option selected value="Consultant">Consultant</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                    <label asp-for="Input.Role">User Type</label>
+                    <span asp-validation-for="Input.Role" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.UserName" class="form-control rounded-pill w-50" autocomplete="username" aria-required="true" placeholder="Username" />
+                    <label asp-for="Input.UserName">Username</label>
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Name" class="form-control rounded-pill w-50" autocomplete="on" aria-required="true" placeholder="Name" />
+                    <label asp-for="Input.Name">Name</label>
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Surname" class="form-control rounded-pill w-50" autocomplete="on" aria-required="true" placeholder="Surname" />
+                    <label asp-for="Input.Surname">Surname</label>
+                    <span asp-validation-for="Input.Surname" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <select asp-for="Input.Gender" class="form-control rounded-pill w-50">
+                        <option disabled>Your Gender</option>
+                        <option selected value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">Non-Binary</option>
+                    </select>
+                    <label asp-for="Input.Gender">Gender</label>
+                    <span asp-validation-for="Input.Gender" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="date" asp-for="Input.DateOfBirth" class="form-control rounded-pill w-50" autocomplete="on" aria-required="true" placeholder="Date of Birth" />
+                    <label asp-for="Input.DateOfBirth">Date of Birth</label>
+                    <span asp-validation-for="Input.DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.City" class="form-control rounded-pill w-50" autocomplete="on" aria-required="true" placeholder="City" />
+                    <label asp-for="Input.City">City</label>
+                    <span asp-validation-for="Input.City" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Town" class="form-control rounded-pill w-50" autocomplete="on" aria-required="true" placeholder="Town" />
+                    <label asp-for="Input.Town">Town</label>
+                    <span asp-validation-for="Input.Town" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Email" class="form-control rounded-pill w-50" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.Email">Email</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Password" class="form-control rounded-pill w-50" autocomplete="new-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.Password">Password</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.ConfirmPassword" class="form-control rounded-pill w-50" autocomplete="new-password" aria-required="true" placeholder="password" />
+                    <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button id="registerSubmit" type="submit" class="buton rounded-pill w-25 btn btn-lg btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

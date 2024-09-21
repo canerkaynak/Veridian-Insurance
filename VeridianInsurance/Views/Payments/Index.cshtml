@@ -1,0 +1,107 @@
+﻿@page
+@using VeridianInsurance.Models
+@model VeridianInsurance.Models.ViewModels.policyViewModel
+
+@{
+    var viewModel = ViewBag.Message as VeridianInsurance.Models.ViewModels.policyViewModel;
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/payments.css" type="text/css" />
+</head>
+
+<body>
+    <div class="tableBox">
+        <div class="tableBoxHeader">
+            <h2>Payments</h2>
+            <hr />
+        </div>
+        <div class="searchBox">
+            <div class="search">
+                <label>
+                    <input id="polNoSearchInput" type="text" onkeyup="polNoSearchFunction()" placeholder="Policy No">
+                    <ion-icon name="search-outline"></ion-icon>
+                </label>
+            </div>
+            <div class="search">
+                <label>
+                    <input id="cardHolderSearchInput" type="text" onkeyup="cardHolderSearchFunction()" placeholder="Card Holder">
+                    <ion-icon name="search-outline"></ion-icon>
+                </label>
+            </div>
+        </div>
+        <div class="tableDiv">
+            <table id="paymentsListTable">
+                <thead>
+                    <tr>
+                        <td>Policy No</td>
+                        <td>Card Holder</td>
+                        <td>Paid Amount</td>
+                        <td>Payment Date</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var payment in viewModel.Payments)
+                    {
+                        <tr>
+                            <td>@payment.PolicyNo</td>
+                            <td>@payment.CardHolder</td>
+                            <td>@{
+                                    var amount = "₺" + payment.PayedAmount;
+                                }
+                                 @amount
+                            </td>
+                            <td>@payment.PaymentDate.ToString("dd/MM/yyyy HH:mm")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        function polNoSearchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("polNoSearchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("paymentsListTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    }
+                    else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function cardHolderSearchFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("cardHolderSearchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("paymentsListTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td)
+                {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1)
+                    {
+                        tr[i].style.display = "";
+                    }
+                    else
+                    {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>

@@ -1,0 +1,65 @@
+﻿@page
+@using VeridianInsurance.Models
+@model LoginModel
+@inject SignInManager<CustomUser> SignInManager
+@inject UserManager<CustomUser> UserManager
+
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/loginBox.css" type="text/css" />
+</head>
+
+<div class="loginBox">
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <div class="headLine">
+            <div class="headLineColumn">
+                <h2>Sign-In</h2>
+            </div>
+            <div class="headLineColumn">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <button type="button" class="rounded-pill btn btn-lg btn-primary m-1">Back</button>
+                </a>
+            </div>
+        </div>
+        <hr />
+        <form id="account" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.UserName" class="form-control rounded-pill w-50" autocomplete="username" aria-required="true" placeholder="username" />
+                <label asp-for="Input.UserName" class="form-label rounded-pill w-50">Username</label>
+                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control rounded-pill w-75" autocomplete="current-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.Password" class="form-label rounded-pill w-75">Password</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="checkbox mb-3">
+                <label asp-for="Input.RememberMe" class="form-label">
+                    <input class="form-check-input" asp-for="Input.RememberMe" />
+                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                </label>
+            </div>
+            <div>
+                <button id="login-submit" type="submit" class="rounded-pill w-25 btn btn-lg btn-primary">Sign In</button>
+            </div>
+        </form>
+    }
+
+    else
+    {
+        <h3>Hello @User.Identity?.Name!</h3>
+        <p>You already signed-in.</p>
+        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit" class="rounded-pill w-25 btn btn-lg btn-primary">Sign-Out</button>
+        </form>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
