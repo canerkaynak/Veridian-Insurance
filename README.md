@@ -14,7 +14,7 @@ Since I was inexperienced in web development and lacked sufficient knowledge, my
 The application uses the Identity Framework for registration and login operations. There are two roles: "consultant" (employee) and "admin." The admin role has the privilege to access an admin panel that allows for analyzing the performance of the consultants. Both consultants and admins can add and delete customers, and they can generate offers and sign insurance policies within the scope of "health," "vehicle," and "earthquake."
 
 <p align="center">
-  <img src="https://github.com/canerkaynak/Veridian-Insurance/blob/main/database.png" width="500" align="center">
+  <img src="https://github.com/canerkaynak/Veridian-Insurance/blob/master/database.png" width="500" align="center">
 </p>
 
 The database was created using a code-first approach with Entity Framework. We have tables for users, customers, policies (for common attributes across all policies), each insurance type, payments, and vehicle insurance prices, as shown above.
