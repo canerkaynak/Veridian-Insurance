@@ -1,10 +1,10 @@
 # Veridian-Insurance
 
 <div align="center">
-    <a href="http://www.youtube.com/watch?v=vf_XupGDS7s" title="In-app videos">
-        <img src="http://img.youtube.com/vi/vf_XupGDS7s/0.jpg" width="50%">
+    <a href="http://www.youtube.com/watch?v=jhaxFaT-6fk" title="In-app videos">
+        <img src="http://img.youtube.com/vi/jhaxFaT-6fk/0.jpg" width="50%">
     </a>
-    <p>Click the above video to see the in-app videos.</p>
+    <p>Click the link to see the full in-app video: https://youtu.be/jhaxFaT-6fk</p>
 </div>
 
 I participated in an internship program organized by Ada Yazilim. The program focused on developing a simple web or mobile insurance application, comprising both the front end and the back end. Attendees were free to choose the technologies they felt most comfortable with. As a beginner in both web and mobile development, I chose to work on a web application and preferred ASP.NET as my primary technology.
